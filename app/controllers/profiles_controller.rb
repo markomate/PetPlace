@@ -17,7 +17,8 @@ class ProfilesController < ApplicationController
     if Profile.exists?(:user_id => current_user.id)
       redirect_to '/', notice: "You already have a profile!"
     else
-      @profile = Profile.new
+      @profile = current_user.build_profile
+      # @profile = Profile.new
     end
   end
 
