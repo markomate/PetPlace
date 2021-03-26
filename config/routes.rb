@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'donations' => 'donations#index'
-  get 'donations/success'
+  root to: 'home#index'
   resources :listings
   resources :profiles
   devise_for :users, controllers: { registrations: "registrations" }
-  root to: 'home#index'
+  get 'donations' => 'donations#index'
+  get 'donations/success'
+  get '/profiles/:id/edit' => 'profiles#edit'
 end

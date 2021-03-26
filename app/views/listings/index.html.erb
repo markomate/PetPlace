@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Title</th>
       <th>Category</th>
       <th>Price</th>
@@ -17,12 +16,11 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.user_id %></td>
         <td><%= listing.title %></td>
         <td><%= listing.category %></td>
         <td><%= listing.price %></td>
         <td><%= listing.description %></td>
-        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'View Listing', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -32,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>
+<%= link_to 'Create Listing', new_listing_path %>

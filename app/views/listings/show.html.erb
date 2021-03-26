@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
-</p>
+<div class img-wrapper>
+<%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
 
 <p>
   <strong>Title:</strong>
@@ -25,7 +24,27 @@
   <%= @listing.description %>
 </p>
 
-<%= image_tag @listing.picture if @listing.picture.attached? %>
+<h2>Contact Details</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @listing.profile.name %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @listing.profile.contact %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @listing.user.email %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @listing.profile.location %>
+</p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
