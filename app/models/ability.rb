@@ -11,6 +11,7 @@ class Ability
         can :manage, :all
       else
         can :manage, Profile, user_id: user.id
+        can :manage, Listing, user_id: user.id
       end
     #
     # The first argument to `can` is the action you are giving the user

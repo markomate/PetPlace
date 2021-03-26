@@ -60,3 +60,4 @@ gem 'devise'
 
 # CanCanCan gem for authorization
 gem 'cancancan'
+gem "aws-sdk-s3", "~> 1.93"
