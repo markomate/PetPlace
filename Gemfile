@@ -60,4 +60,12 @@ gem 'devise'
 
 # CanCanCan gem for authorization
 gem 'cancancan'
+
+# AWS S3 for active storage
 gem "aws-sdk-s3", "~> 1.93"
+
+# Stripe for donations
+gem "stripe", "~> 5.30"
+
+# Figaro for environment variable encryption
+gem 'figaro'
