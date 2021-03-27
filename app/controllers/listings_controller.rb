@@ -14,7 +14,11 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @listing = Listing.new
+    if !current_user.profile.nil?
+      @listing = Listing.new
+    else
+      redirect_to '/', notice: "You need to fill out your profile first!"
+    end
   end
 
   # GET /listings/1/edit

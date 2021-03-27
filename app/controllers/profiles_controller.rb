@@ -5,7 +5,11 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
-    @profiles = Profile.all
+    if current_user.admin?
+      @profiles = Profile.all
+    else
+      redirect_to '/', notice: "You can only see your profile, have you made one?"
+    end
   end
 
   # GET /profiles/1 or /profiles/1.json

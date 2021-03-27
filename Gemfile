@@ -57,15 +57,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise gem for authentication
 gem 'devise'
-
 # CanCanCan gem for authorization
 gem 'cancancan'
-
 # AWS S3 for active storage
 gem "aws-sdk-s3", "~> 1.93"
-
 # Stripe for donations
 gem "stripe", "~> 5.30"
-
 # Figaro for environment variable encryption
 gem 'figaro'
+# Boostrap gem
+gem 'bootstrap', '~> 5.0.0.beta2'
+# JQuery gem
+gem 'jquery-rails'
+# Gem for forms
+gem 'simple_form'
