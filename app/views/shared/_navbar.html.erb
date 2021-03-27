@@ -1,5 +1,5 @@
 <nav>
-  <div class='nav-item'>PetPlace</div>
+  <div class='nav-item'><%= link_to "PetPlace", '/' %></div>
   <div class='nav-item'><%= link_to "Donate", donations_path %></div>
   <div class='nav-item'><%= link_to "Listings", listings_path %></div>
   <% if user_signed_in? %>

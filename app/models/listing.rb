@@ -7,5 +7,5 @@ class Listing < ApplicationRecord
   has_one_attached :picture
   
 
-  # validates :name, :contact, :email, presence: true
+  validates :title, :category, :price, :description, :picture, presence: true
 end
