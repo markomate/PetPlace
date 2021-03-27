@@ -1,0 +1,27 @@
+nav a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: whitesmoke
+}
+
+
+.form-wrapper {
+  display: flex;
+  width: 75%;
+}
+
+.footer {
+  height: 5%;
+}
+
+
+.carousel-inner {
+  height: 500px;
+}
+
+.alert {
+  display: flex;
+  align-self: center;
+}

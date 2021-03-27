@@ -19,9 +19,12 @@
 
 
     <div class="navbar"><%= render "shared/navbar" %></div>
-    <div class="notice"><%= notice %></div>
     
-    <div class="container"><%= yield %></div>
+    <div class="container">
+      <div class="alert alert-light" role="alert"><%= notice %></div>
+      
+      <div class="yeild"><%= yield %></div>
+    </div>
 
     <div class="footer"><%= render "shared/footer" %></div>
   </body>

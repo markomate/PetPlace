@@ -1,7 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-warning" role="alert"><%= notice %></div>
 
-<div class img-wrapper>
-<%= image_tag @listing.picture if @listing.picture.attached? %>
+<div class="img-container">
+  <% if @listing.picture.attached? %>
+    <%= image_tag @listing.picture, class:"rounded mx-auto d-block img-fluid" %>
+  <% end %>
 </div>
 
 <p>

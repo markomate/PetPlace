@@ -1,44 +1,23 @@
-<%= form_with(model: listing) do |form| %>
-  <% if listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
-      <ul>
-        <% listing.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="form-wrapper">
+  <%= simple_form_for @listing do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="mb-3">
+      <%= f.input :title %>
+    </div>
+    <div class="mb-3">
+      <%= f.input :category %>
+    </div>
+    <div class="mb-3">
+      <%= f.input :price %>
+    </div>
+    <div class="mb-3">
+      <%= f.input :description %>
+    </div>
+    <div class="mb-3">
+      <%= f.file_field :picture, class: "form-control form-control-sm", accept: 'image/png, image/jpg, image/jpeg' %>
+    </div>
+    <div class="mb-3">
+      <%= f.button :submit, class: "btn btn-outline-info mb-3" %>
     </div>
   <% end %>
-
-  <%= form.hidden_field :user_id, :value => current_user.id %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-  <%= form.label :picture %>
-  <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
