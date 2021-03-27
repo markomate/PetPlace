@@ -1,31 +1,44 @@
-<h1>Listings</h1>
+<h2 class="text-center">Listings</h1>
+<div class="form-actions"><%= link_to 'Create Listing', new_listing_path, class: 'btn btn-primary' %></div>
 
-<table class="table table-hover table-bordered border-secondary">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Category</th>
-      <th scope="col">Price</th>
-      <th scope="col">Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
+<% if current_user.admin? %>
+  <table class="table table-hover table-bordered border-secondary">
+    <thead class="thead-dark">
       <tr>
-        <td><%= listing.title %></td>
-        <td><%= listing.category %></td>
-        <td><%= listing.price %></td>
-        <td><%= listing.description %></td>
-        <td><%= link_to 'View Listing', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
       </tr>
+    </thead>
+
+    <tbody>
+      <% @listings.each do |listing| %>
+        <tr>
+          <td><%= listing.title %></td>
+          <td><%= listing.category %></td>
+          <td><%= listing.price %></td>
+          <td class="table-description"><%= listing.description[0...50] %></td>
+          <td class="table-container">
+            <div class="table-link"><%= link_to 'View Listing', listing %></div>
+            <div class="table-link"><%= link_to 'Edit', edit_listing_path(listing) %></div>
+            <div class="table-link"><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="card-wrapper">
+    <% @listings.each do |listing| %>
+      <div class="card" style="width: 18rem;">
+      <% if listing.picture.attached? %><%= image_tag listing.picture, class:"card-img-top" %><% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= listing.title %></h5>
+          <p class="card-text"><%= listing.description[0...50] %></p>
+          <div class="form-actions"><%= link_to 'View Listing', listing, class: 'btn btn-primary' %></div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Create Listing', new_listing_path %>
+  </div>
+<% end %>

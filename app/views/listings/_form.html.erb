@@ -1,19 +1,19 @@
 <div class="form-wrapper">
   <%= simple_form_for @listing do |f| %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :title %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :category %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :price %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :description %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.file_field :picture, class: "form-control form-control-sm", accept: 'image/png, image/jpg, image/jpeg' %>
     </div>
     <div class="form-actions">

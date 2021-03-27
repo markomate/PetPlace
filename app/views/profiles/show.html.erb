@@ -1,22 +1,32 @@
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+<h2 class="text-center">Your Profile</h2>
+<div class="form-wrapper">
+  <div class="form-fields">
+    <div class="form-item">
+      <strong>Name:</strong>
+      <%= @profile.name %>
+    </div>
 
-<p>
-  <strong>D.O.B:</strong>
-  <%= @profile.DOB.to_formatted_s(:long_ordinal) %>
-</p>
+    <div class="form-item">
+      <strong>D.O.B:</strong>
+      <%= @profile.DOB.to_formatted_s(:long_ordinal) %>
+    </div>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @profile.contact %>
-</p>
+    <div class="form-item">
+      <strong>Contact:</strong>
+      <%= @profile.contact %>
+    </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+    <div class="form-item">
+      <strong>Location:</strong>
+      <%= @profile.location %>
+    </div>
+    <div class="form-links">
+      <div class="form-item">
+        <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-primary' %>
+      </div>
+      <div class="form-item">
+        <%= link_to 'Back', profiles_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
