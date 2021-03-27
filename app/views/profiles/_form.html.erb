@@ -1,20 +1,22 @@
 <div class="form-wrapper">
+  <div class="form-fields">
   <%= simple_form_for @profile do |f| %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :name %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :DOB, as: :date, start_year: Date.today.year - 100, end_year: Date.today.year, order: [:day, :month, :year]  %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :contact %>
     </div>
-    <div class="mb-3">
+    <div class="form-item">
       <%= f.input :location %>
     </div>
-    <div class="mb-3 submit-button">
+    <div class="form-actions">
       <%= f.button :submit, class: "btn btn-outline-info mb-3" %>
     </div>
   <% end %>
+  </div>
 </div>
