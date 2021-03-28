@@ -1,6 +1,9 @@
-<h1>Editing Listing</h1>
+<h1 class="text-center">Edit Listing</h1>
 
 <%= render 'form', listing: @listing %>
-
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+<div class="form-actions xtra-pad-btm">
+  <div class="xtra-pad-right">
+    <%= link_to 'Back', listings_path, class: 'btn btn-primary' %>
+  </div>
+  <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>

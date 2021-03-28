@@ -1,32 +1,19 @@
-<h2 class="text-center">Your Profile</h2>
+<h1 class="text-center xtra-pad-btm">Your Profile</h2>
 <div class="form-wrapper">
   <div class="form-fields">
-    <div class="form-item">
-      <strong>Name:</strong>
-      <%= @profile.name %>
-    </div>
 
-    <div class="form-item">
-      <strong>D.O.B:</strong>
-      <%= @profile.DOB.to_formatted_s(:long_ordinal) %>
-    </div>
-
-    <div class="form-item">
-      <strong>Contact:</strong>
-      <%= @profile.contact %>
-    </div>
-
-    <div class="form-item">
-      <strong>Location:</strong>
-      <%= @profile.location %>
-    </div>
-    <div class="form-links">
-      <div class="form-item">
-        <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-primary' %>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="text-center xtra-pad-top"><%= @profile.name %></h5>
       </div>
-      <div class="form-item">
-        <%= link_to 'Back', profiles_path, class: 'btn btn-primary' %>
-      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>D.O.B:</strong> <%= @profile.DOB.to_formatted_s(:long_ordinal) %></li>
+        <li class="list-group-item"><strong>Contact:</strong> <%= @profile.contact %></li>
+        <li class="list-group-item"><strong>Location:</strong> <%= @profile.location %></li>
+        <li class="list-group-item table-link text-center xtra-pad-top"><%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-info' %>
+        <%= link_to 'Back', profiles_path, class: 'btn btn-primary' %></li>
+      </ul>
     </div>
+
   </div>
 </div>

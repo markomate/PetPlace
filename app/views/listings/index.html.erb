@@ -1,5 +1,5 @@
 <h2 class="text-center">Listings</h1>
-<div class="form-actions"><%= link_to 'Create Listing', new_listing_path, class: 'btn btn-primary' %></div>
+<div class="form-actions xtra-pad-btm"><%= link_to 'Create Listing', new_listing_path, class: 'btn btn-primary' %></div>
 
 <% if current_user.admin? %>
   <table class="table table-hover table-bordered border-secondary">
@@ -15,10 +15,10 @@
     <tbody>
       <% @listings.each do |listing| %>
         <tr>
-          <td><%= listing.title %></td>
-          <td><%= listing.category %></td>
+          <td><%= listing.title[0...30] %></td>
+          <td><%= listing.category[0...30] %></td>
           <td><%= listing.price %></td>
-          <td class="table-description"><%= listing.description[0...50] %></td>
+          <td class="table-description"><%= listing.description[0...30] %></td>
           <td class="table-container">
             <div class="table-link"><%= link_to 'View Listing', listing %></div>
             <div class="table-link"><%= link_to 'Edit', edit_listing_path(listing) %></div>
@@ -34,8 +34,8 @@
       <div class="card" style="width: 18rem;">
       <% if listing.picture.attached? %><%= image_tag listing.picture, class:"card-img-top" %><% end %>
         <div class="card-body">
-          <h5 class="card-title"><%= listing.title %></h5>
-          <p class="card-text"><%= listing.description[0...50] %></p>
+          <h5 class="card-title text-center"><%= listing.title %></h5>
+          <p class="card-text"><%= listing.description[0...150] %></p>
           <div class="form-actions"><%= link_to 'View Listing', listing, class: 'btn btn-primary' %></div>
         </div>
       </div>

@@ -6,7 +6,7 @@ class DonationsController < ApplicationController
         customer_email: current_user.email,
         line_items: [{
           name: "Thank you #{current_user.profile.name}, we really appreciate your support! :)",
-          amount: 500,
+          amount: 200,
           currency: 'aud',
           quantity: 1,
         }],

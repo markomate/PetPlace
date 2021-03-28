@@ -10,10 +10,16 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    placeholders:
+      profile:
+        name: 'Please enter a name or business name'
+        contact: 'Contact number'
+        location: 'This will be public!'
     # Examples
     # labels:
-    #   defaults:
-    #     password: 'Password'
+    #   location: 'This will be public!'
+      # defaults:
+      #   password: 'Password'
     #   user:
     #     new:
     #       email: 'E-mail to sign in.'

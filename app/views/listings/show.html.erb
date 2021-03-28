@@ -1,50 +1,51 @@
-<div class="img-container">
-  <% if @listing.picture.attached? %>
-    <%= image_tag @listing.picture, class:"rounded mx-auto d-block img-fluid" %>
-  <% end %>
+<div class="title-container xtra-pad-btm">
+  <div><%= link_to 'Back', listings_path, class: 'btn btn-primary' %></div>
+  <div><h1 class="text-end xtra-pad-right"><%= @listing.title[0..50] %></h2></div>
+</div>
+<div class="listing-wrapper">
+  <div class="img-container">
+    <% if @listing.picture.attached? %>
+      <%= image_tag @listing.picture, class: 'rounded mx-auto d-block img-fluid', style: 'width: 500px' %>
+    <% end %>
+  </div>
+
+  <div class="info-container">
+    <div class="text-center">
+      <strong>Category:</strong>
+      <%= @listing.category %>
+    </div>
+    <div class="text-center">
+      <strong>Price:</strong>
+      <%= number_to_currency(@listing.price) %>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h5 class="text-center">Contact Details</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h5 class="text-center"><%= @listing.profile.name %></h5></li>
+        <li class="list-group-item"><strong>Contact:</strong> <%= @listing.profile.contact %></li>
+        <li class="list-group-item"><strong>Email:</strong> <%= @listing.user.email %></li>
+        <li class="list-group-item"><strong>Location:</strong> <%= @listing.profile.location %></li>
+      </ul>
+    </div>
+    <% if current_user.id == @listing.user.id || current_user.admin? %>
+      <div class="form-actions xtra-pad-btm">
+        <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="xtra-pad-btm">
+  <div class="card">
+    <div class="card-body">
+      <h3>Description:</h3>
+      <%= @listing.description %>
+    </div>
+  </div>
 </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @listing.title %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @listing.category %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-
-<h2>Contact Details</h2>
-
-<p>
-  <strong>Name:</strong>
-  <%= @listing.profile.name %>
-</p>
-
-<p>
-  <strong>Contact number:</strong>
-  <%= @listing.profile.contact %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @listing.user.email %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @listing.profile.location %>
-</p>
-
-<%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-primary' %> |
-<%= link_to 'Back', listings_path, class: 'btn btn-primary' %>

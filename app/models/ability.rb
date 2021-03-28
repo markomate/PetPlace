@@ -5,7 +5,8 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    #
+
+    # Some logic whereby admins have all access and only the users have the ability to edit/delete their own listings/profiles
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
