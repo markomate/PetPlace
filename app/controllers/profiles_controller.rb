@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
+    # Admin check so users cant view all profiles
     if current_user.admin?
       @profiles = Profile.all
     else
@@ -18,11 +19,12 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    # Check to see if user already has a profile
     if Profile.exists?(:user_id => current_user.id)
       redirect_to '/', notice: "You already have a profile!"
     else
+      # .build_profile instead of .new
       @profile = current_user.build_profile
-      # @profile = Profile.new
     end
   end
 

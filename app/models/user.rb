@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   # one-to-many relation
   has_many :listings
+  
+  # Devise
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

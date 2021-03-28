@@ -1,10 +1,13 @@
 class ListingsController < ApplicationController
+  # CanCanCan
   load_and_authorize_resource
+  # Devise
   before_action :authenticate_user!
   before_action :set_listing, only: %i[ show edit update destroy ]
 
   # GET /listings or /listings.json
   def index
+    # Order by newest first
     @listings = Listing.all.order("created_at DESC")
   end
 
@@ -14,6 +17,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+    # Checks if user has a profile before trying to make a listing
     if !current_user.profile.nil?
       @listing = Listing.new
     else

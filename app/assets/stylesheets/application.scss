@@ -147,6 +147,7 @@ label {
   justify-content: space-evenly;
 }
 
+// nav greeting wont display to smaller devices
 @media screen and (min-width: 0px) and (max-width: 600px) {
   .nav-greeting { display: none; }
 }

@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
   def index
+    # Checks to see if user is signed in and has filled out their profile page
     if user_signed_in? && !current_user.profile.nil?
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
