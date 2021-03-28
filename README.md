@@ -1,25 +1,40 @@
-# README
+# PetPlace Marketplace
+## By Marko Cirkovic
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version: 2.7.2
 
-Things you may want to cover:
+### Database: PostgreSQL
 
-* Ruby version
+---
+## How to run the app:
 
-* System dependencies
+First, make sure Ruby is installed on your system, you can do this by running the command:
+```
+ruby -v
+```
 
-* Configuration
+Now make sure Rails is installed
+```
+rails -v
+```
 
-* Database creation
+If you see both, you're all good to go an clone the repo with:
+```
+git clone https://github.com/markomate/PetPlace.git
+```
 
-* Database initialization
+Next install all the dependencies
+```
+bundle install
+```
 
-* How to run the test suite
+Then create a database and migrate the schema with:
+```
+rake db:create
+rake db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# PetPlace
+Now you should be able to run:
+```
+rails s
+```
