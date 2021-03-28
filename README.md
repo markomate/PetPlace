@@ -33,8 +33,21 @@ Then create a database and migrate the schema with:
 rake db:create
 rake db:migrate
 ```
+Finally initialize webpacker
+```
+bundle exec rake webpacker:install
+```
 
 Now you should be able to run:
 ```
 rails s
 ```
+
+### Necessary variables for full functionality - you can set these easily with the Figaro gem
+
+* ENV['mailer_email']
+* ENV['mailer_password']
+* ENV['AWS_ACCESS_KEY_ID']
+* ENV['AWS_SECRET_ACCESS_KEY']
+* ENV['STRIPE_PUBLISHABLE_KEY']
+* ENV['STRIPE_SECRET_KEY']
