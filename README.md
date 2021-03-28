@@ -5,6 +5,8 @@
 
 ### Database: PostgreSQL
 
+### This has only been tested on Windows running Ubuntu!
+
 ---
 ## How to run the app:
 
