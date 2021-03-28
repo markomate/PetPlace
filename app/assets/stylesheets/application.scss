@@ -20,8 +20,14 @@ label {
   background-color: white;
 }
 
-.carousel-inner {
-  height: 500px;
+.carousel {
+  max-height: 600px;
+  overflow: hidden;
+
+  .item img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .alert {
@@ -37,7 +43,7 @@ label {
 
 .form-fields {
   width: 400px;
-  box-shadow: 0px 0px 70px 10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.50);
 }
 
 .shadow-box {
